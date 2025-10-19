@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Create Token — Prank Demo</title>
+
+  <!-- ===========================
+       IMPORTANT: When you add your Google Search Console HTML tag,
+       paste it directly below this comment (inside <head>).
+       Example (Search Console will give you a line like):
+       <meta name="google-site-verification" content="PASTE-TOKEN-HERE" />
+       =========================== -->
+
+  <!-- Basic SEO -->
+  <meta name="description" content="A harmless fake token-creation UI (prank). This page does NOT create tokens.">
+  <link rel="canonical" href="https://YOUR_SITE_URL/">
+
+  <!-- Open Graph (social preview) -->
+  <meta property="og:title" content="Create Token — Prank Demo">
+  <meta property="og:description" content="A harmless fake token creation UI — prank only.">
+  <meta property="og:url" content="https://YOUR_SITE_URL/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://YOUR_SITE_URL/og-image.png">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Create Token — Prank Demo">
+  <meta name="twitter:description" content="A harmless fake token creation UI — prank only.">
+  <meta name="twitter:image" content="https://YOUR_SITE_URL/og-image.png">
+
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:#071022;color:#e6eef8;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;}
+    .card{background:#0b1220;padding:24px;border-radius:12px;width:760px;max-width:94%;box-shadow:0 8px 30px rgba(0,0,0,0.6);}
+    h1{margin:0 0 8px 0;font-size:20px;}
+    label{display:block;color:#9aa4b2;margin-top:10px;margin-bottom:6px;font-size:13px;}
+    input,select,button{padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.02);color:inherit;outline:none;}
+    .row{display:flex;gap:12px;align-items:flex-end;}
+    .actions{display:flex;gap:8px;margin-top:12px;}
+    .address{font-family:monospace;background:rgba(255,255,255,0.02);padding:12px;border-radius:8px;word-break:break-all;}
+    .muted{color:#9aa4b2;font-size:13px;margin-top:8px;}
+    .btn{background:#7c3aed;color:white;border:none;cursor:pointer;padding:10px 14px;border-radius:8px;}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#9aa4b2;padding:10px 12px;border-radius:8px;}
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:50;}
+    .modal.show{display:flex;}
+    .modal-inner{background:#071226;padding:18px;border-radius:12px;width:420px;max-width:94%;}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Create a token — Demo (Prank)</h1>
+    <p class="muted">This is a fake/demo UI — it does not actually create tokens. Do not request real funds.</p>
+
+    <label>Token name</label>
+    <input id="tokenName" placeholder="MyPrankToken" />
+
+    <div class="row" style="margin-top:12px;">
+      <div style="flex:1;">
+        <label>Total supply</label>
+        <input id="supply" type="number" value="1000000" />
+      </div>
+      <div style="width:180px;">
+        <label>Network</label>
+        <select id="network">
+          <option value="solana">Solana (prank)</option>
+          <option value="ethereum">Ethereum (prank)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="btnCreate" class="btn">Create (fake)</button>
+      <button id="btnPreview" class="ghost">Preview</button>
+    </div>
+
+    <div id="preview" style="display:none;margin-top:14px;">
+      <div class="muted">Amount to send (prank)</div>
+      <div id="amount" style="font-weight:800;margin-top:6px;">—</div>
+      <div class="muted" style="margin-top:10px;">Recipient (prank)</div>
+      <div id="addr" class="address" style="margin-top:6px;">GuPBUb2sFjrsdqDgNZLpsfHQbjHD9LkAXEkVHC61KMc5</div>
+      <div style="margin-top:10px;display:flex;gap:8px;">
+        <button id="copy" class="ghost">Copy</button>
+        <button id="view" class="ghost">View on explorer</button>
+      </div>
+      <div class="muted" style="margin-top:10px;">After "sending", click Confirm (demo only).</div>
+      <div style="margin-top:8px;">
+        <button id="confirm" class="btn">Confirm payment (fake)</button>
+        <button id="cancel" class="ghost">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-inner">
+      <div style="display:flex;justify-content
